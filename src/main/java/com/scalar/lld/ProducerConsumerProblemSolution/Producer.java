@@ -1,4 +1,4 @@
-package com.scalar.lld.ProducerConsumerProblem;
+package com.scalar.lld.ProducerConsumerProblemSolution;
 
 import java.util.Queue;
 
@@ -14,9 +14,11 @@ public class Producer implements Runnable {
     @Override
     public void run() {
         while (true) {
-            if(queue.size() < maxSize) {
-                System.out.println("Consumer "+this.threadName+": is producing, store size="+queue.size());
-                queue.add(new Object());
+            synchronized (queue) {
+                if(queue.size() < maxSize) {
+                    System.out.println("Consumer "+this.threadName+": is producing, store size="+queue.size());
+                    queue.add(new Object());
+                }
             }
         }
     }

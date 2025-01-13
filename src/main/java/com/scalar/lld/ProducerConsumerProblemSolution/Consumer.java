@@ -1,4 +1,4 @@
-package com.scalar.lld.ProducerConsumerProblem;
+package com.scalar.lld.ProducerConsumerProblemSolution;
 
 import java.util.Queue;
 
@@ -14,10 +14,13 @@ public class Consumer implements Runnable {
     @Override
     public void run() {
         while (true) {
-            if(queue.size() > 0) {
-                System.out.println("Consumer "+this.threadName+": is producing, store size="+queue.size());
-                queue.remove(new Object());
+            synchronized (queue) {
+                if(queue.size() > 0) {
+                    System.out.println("Consumer "+this.threadName+": is producing, store size="+queue.size());
+                    queue.remove();
+                }
             }
+
         }
     }
 }

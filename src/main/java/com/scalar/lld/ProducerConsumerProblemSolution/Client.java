@@ -1,9 +1,7 @@
-package com.scalar.lld.ProducerConsumerProblem;
+package com.scalar.lld.ProducerConsumerProblemSolution;
 
 import java.util.Queue;
 import java.util.concurrent.ConcurrentLinkedQueue;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
 
 public class Client {
     public static void main(String[] args) {
